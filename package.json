@@ -1,0 +1,10 @@
+{
+  "name": "bundlr-action",
+  "version": "0.0.1",
+  "description": "Github action for upload to Arweave through Bundlr Network",
+  "main": "index.ts",
+  "repository": "https://github.com/0xKrauser/bundlr-action.git",
+  "author": "krauser@hey.com",
+  "license": "MIT",
+  "private": true
+}
