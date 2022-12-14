@@ -3,20 +3,16 @@ on: # rebuild any PRs and main branch changes
   workflow_dispatch:
 
 jobs:
-  build: # make sure build/ci work properly
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: |
-          yarn
-      - run: |
-          yarn build && yarn package
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: |
+          yarn --cwd ./examples/website/
+      - run: |
+          yarn --cwd ./examples/website/ build
       - uses: ./
         with:
-          path: ${{ github.workspace }}/examples/website/dist
+          path: "./examples/website/dist"
           private-key: ${{ secrets.PK }}
           bundlr-endpoint: "http://devnet.bundlr.network"
