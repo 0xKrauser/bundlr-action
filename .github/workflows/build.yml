@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./dist/index.js
+      - uses: ./
         with:
           path: "./examples/website/dist"
           private-key: ${{ secrets.PK }}

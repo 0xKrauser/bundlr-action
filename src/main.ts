@@ -1,9 +1,9 @@
 import * as core from '@actions/core'
 import fsPath from 'path'
-import {dirSize, fileSize} from './getSize'
-import {initializeBundlr} from './initializeBundlr'
-import {pathCheck as pathCheckFn} from './pathCheck'
-import * as dotenv from 'dotenv'
+import { dirSize, fileSize } from './getSize'
+import { initializeBundlr } from './initializeBundlr'
+import { pathCheck as pathCheckFn } from './pathCheck'
+
 async function run(): Promise<void> {
   // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
   function debug(msg: string) {
@@ -37,14 +37,14 @@ async function run(): Promise<void> {
     console.log(sourcePath)
 
     const client = initializeBundlr(
-      {endpoint, currency, privateKey},
+      { endpoint, currency, privateKey },
       msg => debug(msg),
       msg => fail(msg)
     )
     if (!client) return
 
     const pathCheck = pathCheckFn(
-      {sourcePath, indexFile},
+      { sourcePath, indexFile },
       msg => debug(msg),
       msg => fail(msg)
     )
@@ -101,7 +101,7 @@ async function run(): Promise<void> {
         console.log(upload)
         transactionId = upload?.id
       } else {
-        const upload = await client.uploadFile(sourcePath, {tags: parsedTags})
+        const upload = await client.uploadFile(sourcePath, { tags: parsedTags })
         transactionId = upload?.id
       }
     } catch (e: any) {
