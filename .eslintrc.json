@@ -14,6 +14,7 @@
     },
     "rules": {
         "i18n-text/no-en": "off",
+        "no-console": "off",
         "eslint-comments/no-use": "off",
         "import/no-namespace": "off",
         "no-unused-vars": "off",

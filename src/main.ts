@@ -6,11 +6,11 @@ import { pathCheck as pathCheckFn } from './pathCheck'
 
 async function run(): Promise<void> {
   // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
-  function debug(msg: string) {
+  function debug(msg: string): void {
     core.debug(msg)
     //console.log(msg)
   }
-  function fail(msg: string) {
+  function fail(msg: string): void {
     core.setFailed(`Action failed: ${msg}`)
     //console.log(`Action failed: ${msg}`)
   }
@@ -52,7 +52,8 @@ async function run(): Promise<void> {
     )
     if (!pathCheck.length) return
 
-    const [exists, isDirectory, isWebsite] = pathCheck
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [_, isDirectory, isWebsite] = pathCheck
 
     // Calculate file/directory size
     const size = await (isDirectory
@@ -106,6 +107,7 @@ async function run(): Promise<void> {
         const upload = await client.uploadFile(sourcePath, { tags: parsedTags })
         transactionId = upload?.id
       }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (e: any) {
       fail(e.message)
       return
