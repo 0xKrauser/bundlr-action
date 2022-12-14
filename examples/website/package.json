@@ -1,0 +1,40 @@
+{
+  "name": "bundlr-action",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@bundlr-network/client": "^0.9.6",
+    "@esbuild-plugins/node-globals-polyfill": "^0.1.1",
+    "@esbuild-plugins/node-modules-polyfill": "^0.1.4",
+    "@rainbow-me/rainbowkit": "^0.8.1",
+    "@rollup/plugin-inject": "^5.0.2",
+    "buffer": "^6.0.3",
+    "ethers": "^5.7.2",
+    "iconic-react": "^0.5.0",
+    "lodash.merge": "^4.6.2",
+    "process": "^0.11.10",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "util": "^0.12.5",
+    "wagmi": "^0.9.2"
+  },
+  "devDependencies": {
+    "@types/lodash.merge": "^4.6.7",
+    "@types/node": "^18.11.15",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.9",
+    "@vitejs/plugin-react": "^3.0.0",
+    "autoprefixer": "^10.4.13",
+    "eslint": "^8.27.0",
+    "postcss": "^8.4.20",
+    "tailwindcss": "^3.2.4",
+    "typescript": "^4.9.3",
+    "vite": "^4.0.0"
+  }
+}
