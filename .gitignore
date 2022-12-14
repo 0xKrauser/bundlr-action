@@ -14,6 +14,9 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 # Dependency directory
 node_modules
 
+#test directories
+lib
+
 # OS metadata
 .DS_Store
 Thumbs.db

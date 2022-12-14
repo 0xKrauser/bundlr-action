@@ -1,34 +1,38 @@
-name: 'bundlr-action'
-description: 'Github action for upload to Arweave through Bundlr Network'
+name: "bundlr-action"
+description: "Github action for upload to Arweave through Bundlr Network"
 inputs:
   private-key:
-    description: 'Private Key of the account that will fund the gas costs - Please use an address limited to this purpose'
+    description: "Private Key of the account that will fund the gas costs - Please use an address limited to this purpose, use Github secrets and use good opsec in general"
     required: true
+  path:
+    description: "Location of the folder or file to upload"
+    required: true
+    default: "./dist"
   bundlr-endpoint:
-    description: 'Endpoint of the Bundlr Network which will handle the transaction'
+    description: "Endpoint of the Bundlr Network which will handle the transaction"
     required: false
-    default: 'http://node1.bundlr.network'
+    default: "http://node1.bundlr.network"
   bundlr-currency:
-    description: 'Currency used to pay fees to the Bundlr Network'
+    description: "Currency used to pay fees to the Bundlr Network"
     required: false
-    default: 'matic'
+    default: "matic"
   bundlr-price-limit:
-    description: 'Limit on the price of the upload, 18 decimals, fails action if the price of the transaction is greater'
+    description: "Limit on the price of the upload, 18 decimals, fails action if the price of the transaction is greater"
     required: false
-    default: '10000000000000000000' # 10UNIT default
+    default: "10000000000000000000" # 10UNIT default
   index-file:
-    description: 'Location or name of the index file for website upload, skipped if no file is found (simply set to "false" to avoid uploading as website)'
+    description: 'Name of the index file for website upload, skipped if no file is found in the path (simply set to "false" to avoid uploading as website)'
     required: false
-    default: 'index.html'
+    default: "index.html"
   tags:
-    description: 'String that describes an array of tags, see Bundlr documentation'
+    description: "String that describes an array of tags, see Bundlr documentation"
     required: false
-    default: '[]'
+    default: "[]"
 outputs:
   timestamp:
-    description: 'Timestamp of the action completion'
+    description: "Timestamp of the action completion"
   transaction-id:
-    description: 'Arweave transaction ID, upload will be available at `https://arweave.net/${id}` or preferred Arweave gateway'
+    description: "Arweave transaction ID, upload will be available at `https://arweave.net/${id}` or preferred Arweave gateway"
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: "node16"
+  main: "dist/index.js"
