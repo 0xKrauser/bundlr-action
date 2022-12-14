@@ -34,7 +34,9 @@ async function run(): Promise<void> {
     if (!fsPath.isAbsolute(path)) {
       sourcePath = fsPath.join(workspace.toString(), path)
     }
-    console.log(sourcePath)
+    core.info(path)
+    core.info(workspace.toString())
+    core.info(sourcePath)
 
     const client = initializeBundlr(
       { endpoint, currency, privateKey },
